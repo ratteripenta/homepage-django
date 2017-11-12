@@ -1,5 +1,25 @@
 app:
-    ☐ Go through the Udemy Django-dev course: Only after that return to this project.
+    ✔ Go through the Udemy Django-dev course: Only after that return to this project. @done (11/12/2017, 2:24:02 PM)
+    server:
+        ✔ Hosting? Raspberry Pi 2 @done (11/12/2017, 2:23:57 PM)
+ui:
+    ☐ Main theme is to mimic a Python IDE feel with line numbers etc
+    color themes:
+        ☐ Main view should be light text on dark background
+        ☐ Successive views should be inverted
+    mobile:
+        ☐ Swipe-centered UI (https://codepen.io/espaviv/pen/eGPOpO)
+        ☐ Navgiation by swiping ( https://www.awwwards.com/touchswipe-a-jquery-plugin-for-touch-and-gesture-based-interaction.html)
+        ☐ Must ensure scroll behaviour
+    desktop:
+        ☐ Horizontal scrolling to match mobile design
 
-ideas:
-    ☐ The page should display syntax around the main body of text, such as def class Petteri_Nevavuori(KingdomOfGod)
+contents:
+    ☐ Dynamic career contents from LinkedIn: Title, what else?
+    ☐ Static personal contents as text: Faith, family and hobbies/interests
+    pages:
+        ☐ init: The home page
+        ☐ about me
+        ☐ blog?
+        ☐ contact   
+    

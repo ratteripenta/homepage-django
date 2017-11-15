@@ -1,25 +1,30 @@
 from django.db import models
+from django.utils.text import slugify
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
 
 # Create your models here.
 
 
-class TextContainer(models.Model):
+class Page(models.Model):
     """
-    A container for text paragraphs.
+    A model for a single page with Markdown content.
     """
-    name = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ('title',)
+
+    slug = models.SlugField(unique=True, null=True)
+    title = models.CharField(max_length=100, unique=True)
+    content = MarkdownxField()
+
+    @property
+    def content_md(self):
+        return markdownify(self.content)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.name or ''
-
-
-class Paragraph(models.Model):
-    """
-    A simple paragraph of text.
-    """
-    text = models.TextField()
-    container = models.ForeignKey(
-        TextContainer, related_name='paragraphs', on_delete=models.CASCADE)
-
-    def __str(self):
-        return self.text or ''
+        return self.title or ''

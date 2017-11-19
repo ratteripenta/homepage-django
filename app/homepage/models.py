@@ -28,3 +28,7 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title or ''
+
+
+class InheritedPage(Page):
+    test = models.CharField(max_length=10)

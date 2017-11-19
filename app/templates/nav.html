@@ -1,1 +1,7 @@
-<p>NAV</p>
+<ul class="nav justify-content-center|justify-content-end">
+  {% for page in navigation_pages %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ page.slug }}">{{ page }}</a>
+  </li>
+  {% endfor %}
+</ul>

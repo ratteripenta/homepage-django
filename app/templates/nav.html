@@ -1,7 +1,9 @@
-<ul class="nav justify-content-center|justify-content-end">
+<ul class="nav justify-content-center">
+  <a href="/" class="navbar-brand">PETTERI NEVAVUORI</a>
+  <li class="navbar-brand">//</li>
   {% for page in navigation_pages %}
   <li class="nav-item">
-    <a class="nav-link" href="{{ page.slug }}">{{ page }}</a>
+    <a class="nav-link" href="{{ page.slug }}">{{ page|upper }}</a>
   </li>
   {% endfor %}
 </ul>

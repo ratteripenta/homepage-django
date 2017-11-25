@@ -1,22 +1,19 @@
 from django.contrib import admin
-from markdownx.admin import MarkdownxModelAdmin, AdminMarkdownxWidget
+from markdownx.admin import AdminMarkdownxWidget, MarkdownxModelAdmin
 from markdownx.models import MarkdownxField
 
-from .models import Page, InheritedPage
-
-# Register your models here.
+from . import models
 
 
-class PageAdmin(admin.ModelAdmin):
+class SlugReadOnly(admin.ModelAdmin):
     readonly_fields = ('slug',)
+
+
+class SlugReadOnlyWithMarkdownEditor(SlugReadOnly):
     formfield_overrides = {
         MarkdownxField: {'widget': AdminMarkdownxWidget}
     }
 
 
-class InheritedPageAdmin(PageAdmin):
-    pass
-
-
-admin.site.register(Page, PageAdmin)
-admin.site.register(InheritedPage, InheritedPageAdmin)
+admin.site.register(models.NavigablePage, SlugReadOnly)
+admin.site.register(models.TextPage, SlugReadOnlyWithMarkdownEditor)

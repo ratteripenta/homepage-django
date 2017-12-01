@@ -1,18 +1,21 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-around fixed-bottom">
+<nav>
   
-  <ul class="navbar-nav">
+  <ul class="container">
     
-    <a href="/" class="navbar-brand brand-link">PETTERI NEVAVUORI</a>
-    <li class="navbar-brand slash-divider">//</li>
+    <a href="/" class="two columns">
+      HOME
+      <span class="slash"></span>
+      <span class="slash"></span>
+    </a>
     
     {% for page in navigation_pages %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ page.slug }}">{{ page|upper }}</a>
+    <li class="two columns">
+      <a class="" href="{{ page.slug }}">{{ page|upper }}</a>
     </li>
     {% endfor %}
     
-    <li class="nav-item">
-      <a href="admin" class="nav-link">PAGE ADMIN</a>
+    <li class="">
+      <a href="admin" class="">PAGE ADMIN</a>
     </li>
   
   </ul>

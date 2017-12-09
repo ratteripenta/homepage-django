@@ -27,9 +27,11 @@
 
 <div class="navbar">
   <div class="navbar-items">
-    <a href="">TEST</a>
-    <a href="">TEST</a>
-    <a href="">TEST</a>
+    {% for page in navigation_pages %}
+    <div class="navbar-item">
+      <h4><a href="{{ page.slug }}">{{ page|upper }}</a></h4>
+    </div>
+    {% endfor %}
   </div>
   <div class="navbar-mobile">
     <div class="home u-pull-left">

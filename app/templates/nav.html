@@ -1,24 +1,42 @@
 <!-- Reference: https://codepen.io/RRoberts/pen/OXxkzm -->
-<nav>
-  
-  <ul class="container">
-    
-    <a href="/" class="two columns">
-      HOME
-      <span class="slash"></span>
-      <span class="slash"></span>
-    </a>
-    
-    {% for page in navigation_pages %}
-    <li class="two columns">
-      <a class="" href="{{ page.slug }}">{{ page|upper }}</a>
-    </li>
-    {% endfor %}
-    
-    <li class="">
-      <a href="admin" class="">PAGE ADMIN</a>
-    </li>
-  
-  </ul>
-  
-</nav>
+<!-- <div class="navigation">
+  <div class="header">
+    <div class="menu-toggle">
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <ul>
+      <li>
+        <a href="/">HOME</a>
+        <span class="slash"></span>
+        <span class="slash"></span>
+      </li>
+      {% for page in navigation_pages %}
+      <li>
+        <a href="{{ page.slug }}">{{ page|upper }}</a>
+      </li>
+      {% endfor %}
+      <li >
+        <a href="admin">PAGE ADMIN</a>
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+<div class="navbar">
+  <div class="navbar-items">
+    <a href="">TEST</a>
+    <a href="">TEST</a>
+    <a href="">TEST</a>
+  </div>
+  <div class="navbar-mobile">
+    <div class="home u-pull-left">
+      <a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+    </div>
+    <div class="menu u-pull-right" id="menu">
+      <i class="fa fa-bars fa-2x" aria-hidden="true" ></i>
+    </div>
+  </div>
+</div>

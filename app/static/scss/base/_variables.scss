@@ -10,12 +10,15 @@ $bp-larger-than-desktophd : "min-width: 1200px" !default;
 
 // Colors
 $light-grey: #e1e1e1 !default;
-$dark-grey: #333 !default;
+$dark-grey: #555 !default;
 $primary-color: #33c3f0 !default;
 $secondary-color: lighten($dark-grey, 13.5%) !default;
 $border-color: #bbb !default;
 $link-color: #1eaedb !default;
 $font-color: #222 !default;
+
+// Self-defined colors
+$background: #FFF;
 
 // Typography
 $font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !default;

@@ -13,26 +13,33 @@
     <title>Petteri Nevavuori's Homepage</title>
     
     <!-- FONT -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   
-    <!-- Skeleton CSS -->
+    <!-- Modified Skeleton CSS -->
     <link rel="stylesheet" href="static/css/normalize.css">
     <link rel="stylesheet" href="static/css/skeleton.css">
-  
-    <!-- Own CSS -->
-    <link rel="stylesheet" href="static/css/styles.css">
 
+    <!-- jQuery Slim Minified -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- Own scripts -->
+    <script src="static/js/scripts.js"></script>
+    
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container page-content">
         
         {% block content %}{% endblock content %}
 
     </div>
     
-    <div class="footer">
+    <div class="navigation">
 
         {% navigation_pages %}
     

@@ -197,17 +197,14 @@ th {
 * Sass Version by Seth Coelen https://github.com/whatsnewsaes
 */
 html {
-  font-size: 62.5%;
-  height: 100%; }
+  font-size: 62.5%; }
 
 body {
   font-size: 1.5em;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
-  display: flex;
-  flex-direction: column; }
+  color: #222; }
 
 a {
   color: #1eaedb; }
@@ -444,7 +441,7 @@ button {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555555;
+  color: #777777;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -463,7 +460,7 @@ input[type="submit"], input[type="reset"], input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555555;
+  color: #777777;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -480,24 +477,24 @@ input[type="submit"], input[type="reset"], input[type="button"] {
 
 .button:hover,
 button:hover {
-  color: #333;
-  border-color: #888888;
+  color: #555;
+  border-color: #aaaaaa;
   outline: 0; }
 
 input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
-  color: #333;
-  border-color: #888888;
+  color: #555;
+  border-color: #aaaaaa;
   outline: 0; }
 
 .button:focus,
 button:focus {
-  color: #333;
-  border-color: #888888;
+  color: #555;
+  border-color: #aaaaaa;
   outline: 0; }
 
 input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
-  color: #333;
-  border-color: #888888;
+  color: #555;
+  border-color: #aaaaaa;
   outline: 0; }
 
 .button.button-primary,
@@ -668,5 +665,48 @@ ul,
 ol,
 form {
   margin-bottom: 2.5rem; }
+
+/* Own additions */
+.navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  flex: 1 0 auto;
+  border-top: 1px solid #e1e1e1;
+  background-color: #FFF;
+  margin: 0;
+  padding: 0; }
+  .navigation a {
+    text-decoration: none;
+    color: #222; }
+  .navigation .navbar-items {
+    display: none;
+    flex-direction: column;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 1px solid #e1e1e1; }
+    .navigation .navbar-items a {
+      text-align: center; }
+  .navigation .navbar-mobile i {
+    padding: 0.75rem 2.0rem;
+    color: #555; }
+    .navigation .navbar-mobile i:hover {
+      color: #e1e1e1;
+      cursor: pointer; }
+
+.container {
+  height: 80%; }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex: 1 0 auto; }
+
+.page-content {
+  margin: 2rem auto 4rem auto; }
+  .page-content p {
+    text-align: justify; }
 
 /*# sourceMappingURL=skeleton.css.map */

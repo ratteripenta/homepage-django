@@ -6,7 +6,6 @@
 
 html {
   font-size: 62.5%;
-  height: 100%;
 }
 
 body {
@@ -15,8 +14,6 @@ body {
   font-weight: 400;
   font-family: $font-family;
   color: $font-color;
-  display: flex;
-  flex-direction: column;
 }
 
 // Links

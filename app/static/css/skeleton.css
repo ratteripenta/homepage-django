@@ -200,7 +200,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-size: 1.5em;
+  font-size: 1.65em;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -693,7 +693,7 @@ form {
     z-index: 200;
     display: inherit; }
     .navigation .navbar-mobile .brand {
-      padding: 1rem 4rem;
+      padding: 1rem 0rem 1rem 4rem;
       margin: 0; }
     .navigation .navbar-mobile .icon {
       padding: 1rem 4rem;

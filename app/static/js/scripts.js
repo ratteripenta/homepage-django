@@ -3,12 +3,10 @@ $(document).ready(function() {
     var menu = "closed"
     $("#menu").click(function(){
         if (menu === "closed") {
-            $(".navbar-items").css("transform", "translate(0, 0)")
-            $(".navbar-items").css("display","flex")
+            $(".navbar-items").addClass("show")
             menu = "opened"            
         } else {
-            $(".navbar-items").css("transform", "translate(100%, 0)")
-            $(".navbar-items").css("display","none")
+            $(".navbar-items").removeClass("show")
             menu = "closed"
         }
         console.log("Menu clicked, state =",menu)

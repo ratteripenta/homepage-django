@@ -317,7 +317,7 @@ p {
     padding: 0; } }
 @media (min-width: 550px) {
   .container {
-    width: 80%; }
+    width: 85%; }
 
   .column,
   .columns {
@@ -672,26 +672,51 @@ form {
   bottom: 0;
   width: 100%;
   flex: 1 0 auto;
-  border-top: 2px solid #e1e1e1;
+  border-top: 0.5px solid #e1e1e1;
   background-color: #FFF;
   margin: 0;
   padding: 0; }
   .navigation a {
     text-decoration: none;
     color: #222; }
+    .navigation a:hover {
+      color: #e1e1e1; }
   .navigation .navbar-items {
     display: none;
     flex-direction: column;
-    border-bottom: 1px solid #e1e1e1;
-    padding-top: 1rem; }
-    .navigation .navbar-items h4 {
-      text-align: center; }
-  .navigation .navbar-mobile i {
-    padding: 1rem 2rem;
-    color: #555; }
-    .navigation .navbar-mobile i:hover {
-      color: #e1e1e1;
-      cursor: pointer; }
+    border-bottom: 0.5px solid #e1e1e1; }
+    .navigation .navbar-items .navbar-item h5 {
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+  .navigation .navbar-mobile {
+    z-index: 200;
+    display: inherit; }
+    .navigation .navbar-mobile .brand {
+      padding: 1rem 4rem;
+      margin: 0; }
+    .navigation .navbar-mobile .icon {
+      padding: 1rem 4rem;
+      margin: 0;
+      color: #626262; }
+      .navigation .navbar-mobile .icon:hover {
+        color: #e1e1e1;
+        cursor: pointer; }
+  @media (min-width: 750px) {
+    .navigation .navbar-items {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+    .navigation .navbar-mobile {
+      display: none; } }
+
+.muted {
+  color: #e1e1e1; }
+  .muted:hover {
+    color: #f4f4f4; }
+
+.show {
+  display: flex !important; }
 
 .container {
   height: 80%; }

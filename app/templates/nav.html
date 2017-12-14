@@ -1,44 +1,21 @@
-<!-- Reference: https://codepen.io/RRoberts/pen/OXxkzm -->
-<!-- <div class="navigation">
-  <div class="header">
-    <div class="menu-toggle">
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </div>
-  <div class="mobile-nav">
-    <ul>
-      <li>
-        <a href="/">HOME</a>
-        <span class="slash"></span>
-        <span class="slash"></span>
-      </li>
-      {% for page in navigation_pages %}
-      <li>
-        <a href="{{ page.slug }}">{{ page|upper }}</a>
-      </li>
-      {% endfor %}
-      <li >
-        <a href="admin">PAGE ADMIN</a>
-      </li>
-    </ul>
-  </div>
-</div> -->
-
-<div class="navbar">
+<div class="container">
   <div class="navbar-items">
+      <div class="navbar-item admin">
+          <h5><a href="/"><div class="muted">HOME</div></a></h5>
+        </div>
     {% for page in navigation_pages %}
     <div class="navbar-item">
-      <h4><a href="{{ page.slug }}">{{ page|upper }}</a></h4>
+      <h5><a href="{{ page.slug }}">{{ page|upper }}</a></h5>
     </div>
     {% endfor %}
+    <div class="navbar-item admin">
+      <h5><a href="admin"><div class="muted">ADMIN</div></a></h5>
+    </div>
   </div>
-  <div class="navbar-mobile">
-    <div class="home u-pull-left">
-      <a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
-    </div>
-    <div class="menu u-pull-right" id="menu">
-      <i class="fa fa-bars fa-2x" aria-hidden="true" ></i>
-    </div>
+</div>
+<div class="navbar-mobile">
+  <h5 class="brand u-pull-left">PETTERI NEVAVUORI</h5>
+  <div class="icon u-pull-right" id="menu">
+    <i class="fa fa-bars fa-2x " aria-hidden="true" ></i>
   </div>
 </div>

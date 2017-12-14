@@ -8,7 +8,7 @@ from .models import NavigablePage, TextPage
 
 
 def root(request):
-    return render_to_response('base.html')
+    return redirect(reverse('homepage:main-page', kwargs={'slug': 'main-page'}))
 
 
 class TextPageView(generic.DetailView):

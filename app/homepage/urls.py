@@ -16,7 +16,4 @@ urlpatterns = [
     url(r'^(?P<slug>career-bio)$',
         views.TextPageView.as_view(),
         name='career-bio'),
-    url(r'^(?P<slug>contact)$',
-        views.TextPageView.as_view(),
-        name='contact'),
 ]

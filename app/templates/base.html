@@ -1,4 +1,4 @@
-<!DOCTYPE html> {% load navigation_tags %} {% load staticfiles %}
+<!DOCTYPE html> {% load custom_tags %} {% load staticfiles %}
 
 {% load staticfiles %}
 
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>Petteri Nevavuori's Homepage</title>
+    <title>Website of Petteri Nevavuori</title>
     
     <!-- FONT -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
@@ -32,6 +32,12 @@
 </head>
 
 <body>
+
+    <header class="container">
+
+        {% header %}
+
+    </header>
 
     <div class="container page-content">
         

@@ -33,3 +33,19 @@ class TextPage(NavigablePage):
     @property
     def content_md(self):
         return markdownify(self.content)
+
+
+class MarkdownText(models.Model):
+    """
+    A model for injectable static Markdown text.
+    """
+
+    target_section = models.CharField(max_length=20)
+    content = MarkdownxField()
+
+    @property
+    def content_md(self):
+        return markdownify(self.content)
+
+    def __str__(self):
+        return self.target_section or ''

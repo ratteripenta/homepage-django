@@ -1,8 +1,5 @@
 <div class="container">
   <div class="navbar-items">
-      <div class="navbar-item admin">
-          <h5><a href="/"><div class="muted">HOME</div></a></h5>
-        </div>
     {% for page in navigation_pages %}
     <div class="navbar-item">
       <h5><a href="{{ page.slug }}">{{ page|upper }}</a></h5>

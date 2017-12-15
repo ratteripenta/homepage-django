@@ -124,3 +124,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
+
+
+# API Settings
+LINKEDIN_CLIENT_ID = '78t7uq3gpjlawb'

@@ -62,6 +62,7 @@ After succesfully installing the virtual environment, navigate to the path `.../
     source activate django
 
 or
+    
     activate django
 
 respective of your OS.

@@ -49,3 +49,21 @@ class MarkdownText(models.Model):
 
     def __str__(self):
         return self.target_section or ''
+
+
+class LinkedInAPIClient(models.Model):
+    """
+    A model for containing required information or LinkedIn OAuth2 cycle.
+
+    Docs: https://developer.linkedin.com/docs/oauth2
+    """
+    client_id = models.CharField(max_length=64, unique=True)
+    client_secret = models.CharField(max_length=64, unique=True)
+    redirect_uri = models.URLField()
+    state = models.CharField(max_length=64)
+    authorization_code = models.CharField(max_length=1024)
+    access_token = models.CharField(max_length=1024)
+    expires_in = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.client_id or ''

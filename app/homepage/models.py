@@ -78,17 +78,11 @@ class LinkedInAPIClient(models.Model):
     redirect_uri = models.URLField(verbose_name="Redirect URI")
     state = models.UUIDField(default=uuid.uuid4,
                              editable=False)
-    authorization_code = models.CharField(max_length=1024,
-                                          editable=False,
-                                          null=True,
-                                          verbose_name="Authorization Code")
     access_token = models.CharField(max_length=1024,
                                     editable=False,
-                                    null=True,
-                                    verbose_name="Access Token")
+                                    null=True)
     expires_in = models.PositiveIntegerField(editable=False,
-                                             null=True,
-                                             verbose_name="Expires In")
+                                             null=True)
 
     def __str__(self):
         return self.linkedin_app or ''

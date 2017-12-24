@@ -18,10 +18,10 @@ urlpatterns = [
         views.TextPageView.as_view(),
         name='career-bio'),
 
-    url(r'^linkedin/auth$',
+    url(r'^linkedin-auth$',
         linkedin_api.request_authorization_code,
         name='linkedin-auth'),
-    url(r'^linkedin/callback$',
+    url(r'^linkedin-callback$',
         linkedin_api.exchange_code_to_token,
         name='linkedin-callback'),
 ]

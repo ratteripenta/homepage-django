@@ -2,9 +2,7 @@ from django.shortcuts import redirect, reverse, render_to_response
 from django.template.response import TemplateResponse
 from django.views import generic
 
-from .models import NavigablePage, TextPage
-
-# Create your views hereSlugReadOnlyWithMarkdownEditor.
+from .models import NavigablePage, TextPage, LinkedInAPIClient
 
 
 def root(request):

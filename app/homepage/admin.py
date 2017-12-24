@@ -22,3 +22,6 @@ class SlugReadOnlyWithMarkdownEditor(SlugReadOnly, MarkdownEditor):
 admin.site.register(models.NavigablePage, SlugReadOnly)
 admin.site.register(models.TextPage, SlugReadOnlyWithMarkdownEditor)
 admin.site.register(models.MarkdownText, MarkdownEditor)
+admin.site.register(models.LinkedInAPIClient)
+
+admin.site.site_header = "Homepage of Petteri Nevavuori"

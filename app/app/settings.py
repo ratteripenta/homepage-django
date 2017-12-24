@@ -124,3 +124,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
+
+
+# LinkedIn API
+LINKEDIN_AUTH_URL = 'https://www.linkedin.com/oauth/v2/authorization'
+LINKEDIN_TOKEN_URL = 'https://www.linkedin.com/oauth/v2/accessToken'

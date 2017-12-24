@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
@@ -9,6 +11,7 @@ class NavigablePage(models.Model):
     A base model for each page with an associated link in the navigation bar.
     """
     class Meta:
+        verbose_name = "Navigable Page"
         ordering = ('order',)
 
     order = models.PositiveIntegerField(unique=True)
@@ -27,6 +30,8 @@ class TextPage(NavigablePage):
     """
     A model for a single page with Markdown content.
     """
+    class Meta:
+        verbose_name = "Text Page"
 
     content = MarkdownxField()
 
@@ -39,6 +44,8 @@ class MarkdownText(models.Model):
     """
     A model for injectable static Markdown text.
     """
+    class Meta:
+        verbose_name = "Markdown Text"
 
     target_section = models.CharField(max_length=20)
     content = MarkdownxField()
@@ -57,13 +64,31 @@ class LinkedInAPIClient(models.Model):
 
     Docs: https://developer.linkedin.com/docs/oauth2
     """
-    client_id = models.CharField(max_length=64, unique=True)
-    client_secret = models.CharField(max_length=64, unique=True)
-    redirect_uri = models.URLField()
-    state = models.CharField(max_length=64)
-    authorization_code = models.CharField(max_length=1024)
-    access_token = models.CharField(max_length=1024)
-    expires_in = models.PositiveIntegerField()
+    class Meta:
+        verbose_name = "LinkedIn API Client"
+
+    linkedin_app = models.CharField(max_length=64,
+                                    verbose_name="LinkedIn App")
+    client_id = models.CharField(max_length=64,
+                                 unique=True,
+                                 verbose_name='Client ID')
+    client_secret = models.CharField(max_length=64,
+                                     unique=True,
+                                     verbose_name='Client Secret')
+    redirect_uri = models.URLField(verbose_name="Redirect URI")
+    state = models.UUIDField(default=uuid.uuid4,
+                             editable=False)
+    authorization_code = models.CharField(max_length=1024,
+                                          editable=False,
+                                          null=True,
+                                          verbose_name="Authorization Code")
+    access_token = models.CharField(max_length=1024,
+                                    editable=False,
+                                    null=True,
+                                    verbose_name="Access Token")
+    expires_in = models.PositiveIntegerField(editable=False,
+                                             null=True,
+                                             verbose_name="Expires In")
 
     def __str__(self):
-        return self.client_id or ''
+        return self.linkedin_app or ''

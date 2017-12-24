@@ -13,6 +13,7 @@ dependencies:
 - python=3.6.2=0
 - pytz=2017.2=py36_0
 - readline=6.2=2
+- requests=2.14.2=py36_0
 - setuptools=36.4.0=py36_1
 - singledispatch=3.4.0.3=py36_0
 - six=1.10.0=py36_0

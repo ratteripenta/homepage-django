@@ -9,7 +9,6 @@ As a nerd that I am, I'd like to first introduce me in Python syntax:
 		"""
 		
 		def __init__(self):
-            
 			# Names
 			self.firstnames = ['Petteri','Uolevi']
 			self.lastnames = ['Ranta','Nevavuori']
@@ -26,7 +25,7 @@ As a nerd that I am, I'd like to first introduce me in Python syntax:
 				self.belief = {
                     'religion':'Christianity',
                     'since':2011,
-                    'description':'Personal relationship with Jesus'
+                    'description':'Follower of Jesus'
                     }
 
             # Family

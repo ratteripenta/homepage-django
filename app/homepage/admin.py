@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from markdownx.admin import AdminMarkdownxWidget, MarkdownxModelAdmin
 from markdownx.models import MarkdownxField
 
@@ -21,6 +22,7 @@ class SlugReadOnlyWithMarkdownEditor(SlugReadOnly, MarkdownEditor):
 
 admin.site.register(models.NavigablePage, SlugReadOnly)
 admin.site.register(models.TextPage, SlugReadOnlyWithMarkdownEditor)
+admin.site.register(models.LinkedInAPITextPage, SlugReadOnlyWithMarkdownEditor)
 admin.site.register(models.MarkdownText, MarkdownEditor)
 admin.site.register(models.LinkedInAPIClient)
 

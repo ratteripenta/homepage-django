@@ -24,4 +24,7 @@ urlpatterns = [
     url(r'^linkedin-callback$',
         linkedin_api.exchange_code_to_token,
         name='linkedin-callback'),
+    url(r'^linkedin-get$',
+        linkedin_api.get_profile_data,
+        name='linkedin-get'),
 ]

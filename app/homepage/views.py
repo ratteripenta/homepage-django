@@ -1,8 +1,7 @@
-from django.shortcuts import redirect, reverse, render_to_response
-from django.template.response import TemplateResponse
+from django.shortcuts import redirect, reverse
 from django.views import generic
 
-from .models import NavigablePage, TextPage, LinkedInAPIClient
+from .models import TextPage, LinkedInAPITextPage
 
 
 def root(request):
@@ -11,3 +10,7 @@ def root(request):
 
 class TextPageView(generic.DetailView):
     model = TextPage
+
+
+class LinkedInAPITextPageView(generic.DetailView):
+    model = LinkedInAPITextPage

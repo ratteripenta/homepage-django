@@ -129,3 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 # LinkedIn API
 LINKEDIN_AUTH_URL = 'https://www.linkedin.com/oauth/v2/authorization'
 LINKEDIN_TOKEN_URL = 'https://www.linkedin.com/oauth/v2/accessToken'
+LINKEDIN_API_URL = 'https://api.linkedin.com/v1/'
+
+
+# Markdown initialization
+HOMEPAGE_MD_FOLDER = os.path.join(os.getcwd(), 'homepage', 'markdown')

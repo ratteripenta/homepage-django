@@ -1,5 +1,7 @@
+import os
 import uuid
 
+from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
@@ -40,6 +42,48 @@ class TextPage(NavigablePage):
         return markdownify(self.content)
 
 
+class LinkedInAPITextPage(TextPage):
+    """
+    A model for page with content partially retrieved from LinkedIn REST API.
+    """
+    class Meta:
+        verbose_name = 'LinkedIn API Text Page'
+
+    profile_id = models.CharField(max_length=80, unique=True, null=True)
+    headline = models.CharField(max_length=256, null=True)
+    industry = models.CharField(max_length=256, null=True)
+    summary = models.CharField(max_length=2048, null=True)
+    current_job_description = models.CharField(max_length=1024, null=True)
+    profile_url = models.URLField(null=True)
+
+    def save(self, *args, **kwargs):
+        self.content = "".join(open(os.path.join(
+            settings.HOMEPAGE_MD_FOLDER, 'career-bio.md')).readlines()),
+
+        text = "\n The information has been retrieved directly from my [personal LinkedIn page]({}), where you can easily find out more about my current and past studies and positions.\n\n".format(
+            self.profile_url)
+
+        text += "##### CURRENT TITLE\n\n"
+        #text += "---\n"
+        text += "> {}\n\n".format(self.headline)
+
+        text += "##### CURRENT JOB DESCRIPTION\n\n"
+        #text += "---\n"
+        text += "> {}\n\n".format(self.current_job_description)
+
+        text += "##### INDUSTRY\n\n"
+        #text += "---\n"
+        text += "> {}\n\n".format(self.industry)
+
+        text += "##### BRIEF SUMMARY\n\n"
+        #text += "---\n"
+        text += "> {}\n\n".format(self.summary)
+
+        self.content = "".join(self.content + (text,))
+
+        super().save(*args, **kwargs)
+
+
 class MarkdownText(models.Model):
     """
     A model for injectable static Markdown text.
@@ -69,13 +113,16 @@ class LinkedInAPIClient(models.Model):
 
     linkedin_app = models.CharField(max_length=64,
                                     verbose_name="LinkedIn App")
+    api_call_url = models.URLField(verbose_name="LinkedIn API Auth URL",
+                                   null=True)
     client_id = models.CharField(max_length=64,
                                  unique=True,
                                  verbose_name='Client ID')
     client_secret = models.CharField(max_length=64,
                                      unique=True,
                                      verbose_name='Client Secret')
-    redirect_uri = models.URLField(verbose_name="Redirect URI")
+    redirect_uri = models.URLField(verbose_name="Redirect URI",
+                                   null=True)
     state = models.UUIDField(default=uuid.uuid4,
                              editable=False)
     access_token = models.CharField(max_length=1024,

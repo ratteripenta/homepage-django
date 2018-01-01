@@ -23,5 +23,4 @@ dependencies:
   - pillow==4.3.0
   - requests==2.18.4
   - urllib3==1.22
-prefix: /home/karmus/anaconda3/envs/django-pi
 

@@ -22,17 +22,36 @@ Here are the necessary steps to get the project up and running.
 
 ### Create a virtual environment
 
-First thing required is setting up the development environment. In the root of the project there is a file named `venv_ubuntu.yml`, which contains all the required information for setting up the Python virtual environment with `conda`.
+Here you have two options.
+
+#### Option 1: Create from file
+
+First thing required is setting up the development environment. In the root of the project there is a file named `venv_ubuntu.yml` or `venv_pi.yml` respective of your target OS. The dependency file contains all the required information for setting up the Python virtual environment with `conda`.
 
 First install conda:
 
     pip install conda
 
-Then navigate to the project root in a terminal and run:
+Then navigate to the project root in a terminal and run (for example):
 
-    conda env create -f venv_ubuntu.html
+    conda env create -f venv_ubuntu.yml
 
 This should be enough. Otherwise consult [Conda documentation](https://conda.io/docs/) for using files with virtual environment creation and troubleshooting the problems. The `venv_ubuntu.yml` has been created with `conda env export` so there should be no gimmicks implemented by me.
+
+#### Option 2: Install packages by hand
+
+Required packages and their preferred install methods are listed below. 
+
+Preferably with `conda install`:
+
+    django
+    requests
+
+With `pip install`:
+
+    django-markdownx
+
+However you must define your Python version accordingly and test that the website application runs fine with it.
 
 ### Create a superuser
 
@@ -44,7 +63,7 @@ and following the instructions after.
 
 ### Perform migrations
 
-While the database file `db.sqlite3` accompanied with the project already contains required models by default, it is always in place to perform the migrations just in case. To do this, first prepare the mgirations by navigating to the path `.../homepage-django/app` and calling
+The SQLite3 database will not be shipped with the project and needs to be initialized before first run. To do this, first prepare the mgirations by navigating to the path `.../homepage-django/app` and calling
 
     python manage.py makemigrations
 
@@ -52,8 +71,7 @@ and
 
     python manage.py migrate
 
-directly after that.
-
+directly after that. This will create the default pages titled *Main Page*, *About Me* and *Career Bio*. 
 
 ### Start the server
 

@@ -105,3 +105,6 @@ ENV/
 
 # SASS
 .sass-cache/
+
+# Visual Studio code
+.vscode/

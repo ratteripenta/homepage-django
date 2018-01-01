@@ -40,15 +40,10 @@ This should be enough. Otherwise consult [Conda documentation](https://conda.io/
 
 #### Option 2: Install packages by hand
 
-Required packages and their preferred install methods are listed below. 
-
-Preferably with `conda install`:
+Required packages are listed below. 
 
     django
     requests
-
-With `pip install`:
-
     django-markdownx
 
 However you must define your Python version accordingly and test that the website application runs fine with it.

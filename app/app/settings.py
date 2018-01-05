@@ -121,7 +121,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+STATICFILES_DIRS = (
+    STATIC_ROOT,
+)
 
 # LinkedIn API
 LINKEDIN_AUTH_URL = 'https://www.linkedin.com/oauth/v2/authorization'

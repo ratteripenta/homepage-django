@@ -25,7 +25,7 @@ SECRET_KEY = '7$wcq@ve-y7)hw9^81jikdgpvnd(=bz4(579d2r6rsfw6%2+j('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.100.11"]
 
 
 # Application definition
@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
-    STATIC_ROOT,
+    os.path.join(BASE_DIR, 'homepage', 'static'),
 )
 
 # LinkedIn API

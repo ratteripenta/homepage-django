@@ -3,58 +3,60 @@
 
 As a nerd that I am, I'd like to first introduce me in Python syntax:
 
+
 	class PetteriNevavuori(Person):
-		"""
-		This is the high-level definition of me.
-		"""
-		
-		def __init__(self):
-			# Names
-			self.firstnames = ['Petteri','Uolevi']
-			self.lastnames = ['Ranta','Nevavuori']
-            self.birth_year = 1989
+	  """
+	  This is the high-level definition of me.
+	  """
+	  
+	  def __init__(self):
+	    # Names
+	    self.firstnames = ['Petteri','Uolevi']
+	    self.lastnames = ['Ranta','Nevavuori']
+	    self.birth_year = 1989
+	
+	    # Person
+	    self.personality = [
+	      'Easily laughing',
+	      'Curious',
+	      'Jokeful'
+	      ]
+	    self.is_religious = True
+		self.belief = {
+	  	  'religion':'Christianity',
+		  'since':2011,
+		  'description':'Follower of Jesus'
+		}
+	
+	    # Family
+	    self.has_family = True
+	    self.family_members = {
+	      'wife':{
+	        'name':'Heli',
+	        'description':[
+	          'Beautiful',
+	          'Loving',
+	          'Perfect match'
+	          ]
+	        },
+	      'children':{
+	        'daughter':'Linnea',
+	        'daughter':'Evena'
+	        },
+	      'animals':{
+	        'cat':'Martta'
+	        }
+	      }
+	
+	    # Misc
+	    self.hobbies = [
+	      'Theology','Reading',
+		  'Gaming','Tenor Sax',
+	      'Music programming',
+		  'Programming'
+	      ]
 
-			# Person
-			self.personality = [
-                'Easily laughing',
-                'Curious',
-                'Jokeful'
-                ]
-			self.is_religious = True
-			if self.is_religious:
-				self.belief = {
-                    'religion':'Christianity',
-                    'since':2011,
-                    'description':'Follower of Jesus'
-                    }
-
-            # Family
-			self.has_family = True
-			if self.has_family:
-				self.family_members = {
-					'wife':{
-						'name':'Heli',
-						'description':[
-                            'Beautiful',
-                            'Loving',
-                            'Perfect match'
-                            ]
-					    },
-					'children':{
-						'daughter':'Linnea',
-						'daughter':'Evena'
-					    },
-					'animals':{
-						'cat':'Martta'
-					    }
-				    }
-
-			# Misc
-			self.hobbies = [
-                'Theology','Reading','Gaming','Tenor Sax',
-                'Programming','Music programming'
-                ]
-			
+      
 ## Above in human-friendly language
 ---
 

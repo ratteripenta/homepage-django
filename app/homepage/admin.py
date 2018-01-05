@@ -20,7 +20,6 @@ class SlugReadOnlyWithMarkdownEditor(SlugReadOnly, MarkdownEditor):
     pass
 
 
-admin.site.register(models.NavigablePage, SlugReadOnly)
 admin.site.register(models.TextPage, SlugReadOnlyWithMarkdownEditor)
 admin.site.register(models.LinkedInAPITextPage, SlugReadOnlyWithMarkdownEditor)
 admin.site.register(models.MarkdownText, MarkdownEditor)

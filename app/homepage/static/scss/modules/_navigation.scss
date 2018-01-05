@@ -1,0 +1,83 @@
+.navigation{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    flex: 1 0 auto;
+
+    border-top: 0.5px solid $light-grey;
+    background-color: $background;
+    margin: 0;
+    padding: 0;
+
+    a{
+        text-decoration: none;
+        color: $font-color;
+
+        &:hover{
+            color: $light-grey;
+        }
+    }
+    
+    .navbar-items{
+        display: none;
+        flex-direction: column;
+
+        border-bottom: 0.5px solid $light-grey;
+
+        .navbar-item{
+
+            h5{
+                text-align: center; 
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+        
+    .navbar-mobile{
+        z-index: 200;
+        display: inherit;
+
+        .brand{
+            padding: 1rem 0rem 1rem 4rem;
+            margin: 0;
+        }
+
+        .icon{
+            padding: 1rem 4rem;
+            margin: 0;
+            
+            color: darken($light-grey,50%);
+            
+            &:hover{
+                color: $light-grey;
+                cursor: pointer;
+            }
+        }
+    }
+    // Larger than phablet (also point when grid becomes active)
+    @media (#{$bp-larger-than-tablet}) {
+        
+        .navbar-items{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        
+        .navbar-mobile{
+            display: none;
+        }
+    }
+}    
+
+.muted{
+    color: $light-grey;
+
+    &:hover{
+        color: lighten($light-grey,7.5%);
+    }
+}
+
+.show{
+    display: flex !important
+}

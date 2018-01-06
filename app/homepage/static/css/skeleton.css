@@ -733,4 +733,7 @@ form {
   .page-content p {
     text-align: justify; }
 
+pre > code, code {
+  white-space: pre-wrap; }
+
 /*# sourceMappingURL=skeleton.css.map */

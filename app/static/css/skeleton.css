@@ -730,7 +730,7 @@ form {
 
 .page-content {
   margin: 2rem auto 4rem auto; }
-  .page-content p {
+  .page-content p, .page-content h6 {
     text-align: justify; }
 
 pre > code, code {

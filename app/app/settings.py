@@ -25,8 +25,9 @@ SECRET_KEY = '7$wcq@ve-y7)hw9^81jikdgpvnd(=bz4(579d2r6rsfw6%2+j('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["192.168.100.11", "localhost", "www.nevavuori.net", "nevavuori.net"]
-
+ALLOWED_HOSTS = ["192.168.100.11", "localhost", 
+                 "www.nevavuori.net", "nevavuori.net", 
+                 "88.112.33.109",]
 
 # Application definition
 
@@ -71,6 +72,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+# Logging
+
+LOGGING = {
+    'version':1,
+    'disable_existing_loggers':False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        },
+    },
+    'handlers':{
+        'file':{
+            'level':'DEBUG',
+            'class':'logging.FileHandler',
+            'filename':'/home/pi/homepage-django/logs/debug.log',
+        },
+    },
+    'loggers':{
+        'django':{
+            'handlers':['file'],
+            'level':'DEBUG',
+            'propagate':True,
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

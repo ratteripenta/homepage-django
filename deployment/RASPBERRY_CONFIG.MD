@@ -1,6 +1,34 @@
 # Configuring Raspberry Pi 2B
 
-Here's a fill list of operations to apply to a fresh install of Raspberry Pi to make it run the webpage.
+Here's a fill list of operations to apply to a fresh install of Raspberry Pi to make it run the webpage. An all-around great article for setting up a Pi as webserver serving Django applications with Nginx through uWSGI is [How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04) by Justin Ellingwood. While the title says "..on Ubuntu.." the process is applicable to UNIX-based Raspbian as well.
+
+## Python Virtual Environment
+
+First install ``virtualenv``:
+
+    pip3 install virtualenv virtualenvwrapper
+
+Then modify ``~/.bashrc`` by adding the following lines to the end of it:
+
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    export WORKON_HOME=~/venvs
+    source /usr/local/bin/virtualenvwrapper.sh
+
+And apply changes by calling:
+
+    source ~/.bashrc
+
+Then create an environment called ``django``:
+
+    mkvirtualenv django
+
+This is where you will be able to install required packages. 
+
+## Logs
+
+The logs will collected to a single location. This location is ``~/logs``. We must thus create the directory:
+
+	mkdir ~/logs
 
 ## Ethernet Reconnector
 
@@ -49,9 +77,7 @@ and make the script executable with
     chmod +x ~/bin/network-monitor.sh
 
 
-Lastly we also make the logs directory:
 
-	mkdir ~/logs
 
 
 ## Task Automation with Cron

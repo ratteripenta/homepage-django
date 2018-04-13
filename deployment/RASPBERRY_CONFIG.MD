@@ -19,7 +19,11 @@ The project will be then accessible by:
 
 ## Install Python Virtual Environment
 
-First install ``virtualenv``:
+First install ``pip3``:
+
+    sudo apt-get install python3-pip
+
+Then install ``virtualenv``:
 
     pip3 install virtualenv virtualenvwrapper
 

@@ -17,6 +17,12 @@ The project will be then accessible by:
 
     cd ~/homepage-django
 
+## Logs
+
+The logs will collected to a single location. This location is ``~/logs``. We must thus create the directory:
+
+	mkdir ~/logs
+
 ## Install Python Virtual Environment
 
 First install ``pip3``:
@@ -45,15 +51,11 @@ Then create an environment called ``django``:
 
     mkvirtualenv django
 
-This is where you will be able to install required packages. Pi-compliant packages have been collected in ``requirements_pi.txt`` and can be used to install packages by calling
+This is where you will be able to install required packages. 
 
-    pip3 install -r ~/homepage-django/deployment/requirements_pi.txt --no-index
+    pip3 install django django-markdownx requests
 
-## Logs
 
-The logs will collected to a single location. This location is ``~/logs``. We must thus create the directory:
-
-	mkdir ~/logs
 
 ## Install and Configure uWSGI
 

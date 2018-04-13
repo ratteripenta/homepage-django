@@ -22,7 +22,9 @@ Then create an environment called ``django``:
 
     mkvirtualenv django
 
-This is where you will be able to install required packages. 
+This is where you will be able to install required packages. Pi-compliant packages have been collected in ``requirements_pi.txt`` and can be used to install packages by calling
+
+    pip3 install -r requirements_pi.txt --no-index
 
 ## Logs
 

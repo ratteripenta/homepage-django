@@ -20,7 +20,7 @@ The page uses modified [SkeletonCSS](www.getskeleton.com) for responsive styles 
 
 Here are the necessary steps to get the project up and running.
 
-### Install packages by hand
+### Install packages
 
 Required packages are listed below. 
 

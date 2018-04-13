@@ -89,7 +89,7 @@ LOGGING = {
         'file':{
             'level':'DEBUG',
             'class':'logging.FileHandler',
-            'filename':'/home/pi/homepage-django/logs/debug.log',
+            'filename':'/home/pi/logs/homepage-django.log',
             'formatter':'verbose',
         },
     },

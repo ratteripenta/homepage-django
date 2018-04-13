@@ -30,14 +30,6 @@ Required packages are listed below.
 
 However you must define your Python version accordingly and test that the website application runs fine with it.
 
-### Create a superuser
-
-To access the website's admin panel, you must also create a Django super user. This can be achieved by navigating to the path `.../homepage-django/app` and calling
-
-    python manage.py createsuperuser
-
-and following the instructions after.
-
 ### Perform migrations
 
 The SQLite3 database will not be shipped with the project and needs to be initialized before first run. To do this, first prepare the mgirations by navigating to the path `.../homepage-django/app` and calling
@@ -49,6 +41,15 @@ and
     python manage.py migrate
 
 directly after that. This will create the default pages titled *Main Page*, *About Me* and *Career Bio*. 
+
+### Create a superuser
+
+To access the website's admin panel, you must also create a Django super user. This can be achieved by navigating to the path `.../homepage-django/app` and calling
+
+    python manage.py createsuperuser
+
+and following the instructions after.
+
 
 ### Test the page
 

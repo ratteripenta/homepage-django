@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 LOGGING = {
     'version':1,
-    'disable_existing_loggers':False,
+    'disable_existing_loggers':True,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
@@ -90,6 +90,7 @@ LOGGING = {
             'level':'DEBUG',
             'class':'logging.FileHandler',
             'filename':'/home/pi/homepage-django/logs/debug.log',
+            'formatter':'verbose',
         },
     },
     'loggers':{

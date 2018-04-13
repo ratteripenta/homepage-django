@@ -20,25 +20,7 @@ The page uses modified [SkeletonCSS](www.getskeleton.com) for responsive styles 
 
 Here are the necessary steps to get the project up and running.
 
-### Create a virtual environment
-
-Here you have two options.
-
-#### Option 1: Create from file
-
-First thing required is setting up the development environment. In the root of the project there is a file named `venv_ubuntu.yml` or `venv_pi.yml` respective of your target OS. The dependency file contains all the required information for setting up the Python virtual environment with `conda`.
-
-First install conda:
-
-    pip install conda
-
-Then navigate to the project root in a terminal and run (for example):
-
-    conda env create -f venv_ubuntu.yml
-
-This should be enough. Otherwise consult [Conda documentation](https://conda.io/docs/) for using files with virtual environment creation and troubleshooting the problems. The `venv_ubuntu.yml` has been created with `conda env export` so there should be no gimmicks implemented by me.
-
-#### Option 2: Install packages by hand
+### Install packages by hand
 
 Required packages are listed below. 
 
@@ -68,7 +50,7 @@ and
 
 directly after that. This will create the default pages titled *Main Page*, *About Me* and *Career Bio*. 
 
-### Start the server
+### Test the page
 
 After succesfully installing the virtual environment, navigate to the path `.../homepage-django/app` in a terminal. With default virtual environment settings you should then activate the virtual environment by calling either
 
@@ -85,5 +67,3 @@ Then call
     python manage.py runserver
 
 and navigate to the host address presented in the terminal.
-
-

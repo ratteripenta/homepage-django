@@ -27,11 +27,15 @@ Then install ``virtualenv``:
 
     pip3 install virtualenv virtualenvwrapper
 
+We must then link our installed ``virtualenv`` correctly:
+
+    sudo ln -s /home/pi/.local/bin/virtualenv /usr/local/bin/virtualenv
+
 Then modify ``~/.bashrc`` by adding the following lines to the end of it:
 
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
     export WORKON_HOME=~/venvs
-    source /usr/local/bin/virtualenvwrapper.sh
+    source /home/pi/.local/bin/virtualenvwrapper.sh
 
 And apply changes by calling:
 
@@ -43,7 +47,7 @@ Then create an environment called ``django``:
 
 This is where you will be able to install required packages. Pi-compliant packages have been collected in ``requirements_pi.txt`` and can be used to install packages by calling
 
-    pip3 install -r requirements_pi.txt --no-index
+    pip3 install -r ~/homepage-django/deployment/requirements_pi.txt --no-index
 
 ## Logs
 

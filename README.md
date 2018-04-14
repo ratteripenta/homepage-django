@@ -6,7 +6,7 @@ This is the open-source repository for my Django-based homepage. Key elements of
  - Page contents written in Markdown
  - Minimal responsive styling
 
-## Default outline
+## Default Outline
 
 The website is first of all developed in mobile first sense. Thus it is fully responsive, which is explicitly visible with the navigation elements. With viewport sizes smaller than phablet, the links to pages are accessible through a clickable icon. With greater sizes, the links are straight-up visible.
 
@@ -16,11 +16,11 @@ In case of needing a new page however, a URL-route has to be set up to match the
 
 The page uses modified [SkeletonCSS](www.getskeleton.com) for responsive styles and [Font Awesome 4](http://fontawesome.io/) for icons.
 
-## Setting up the project
+## Setting Up the Project
 
-Here are the necessary steps to get the project up and running.
+Here are the necessary steps to get the project up and running. Please notice that more in-depth Raspberry Pi tutorial is given in the ``/deployment/RASPBERRY.md`` to which you can refer for server configuration.
 
-### Install packages
+### Install Packages
 
 Required packages are listed below. 
 
@@ -30,7 +30,7 @@ Required packages are listed below.
 
 However you must define your Python version accordingly and test that the website application runs fine with it.
 
-### Perform migrations
+### Perform Migrations
 
 The SQLite3 database will not be shipped with the project and needs to be initialized before first run. To do this, first prepare the mgirations by navigating to the path `.../homepage-django/app` and calling
 
@@ -42,7 +42,7 @@ and
 
 directly after that. This will create the default pages titled *Main Page*, *About Me* and *Career Bio*. 
 
-### Create a superuser
+### Create a Superuser
 
 To access the website's admin panel, you must also create a Django super user. This can be achieved by navigating to the path `.../homepage-django/app` and calling
 
@@ -50,8 +50,7 @@ To access the website's admin panel, you must also create a Django super user. T
 
 and following the instructions after.
 
-
-### Test the page
+### Test the Website
 
 After succesfully installing the virtual environment, navigate to the path `.../homepage-django/app` in a terminal. With default virtual environment settings you should then activate the virtual environment by calling either
 

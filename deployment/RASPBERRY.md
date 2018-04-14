@@ -2,7 +2,7 @@
 
 Here's a fill list of operations to apply to a fresh install of Raspberry Pi to make it run the webpage. An all-around great article for setting up a Pi as webserver serving Django applications with Nginx through uWSGI is [How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04) by Justin Ellingwood. While the title says "..on Ubuntu.." the process is applicable to UNIX-based Raspbian as well.
 
-## Clone the Project
+## 1. Clone the Project
 
 If ``git`` isn't installed, install it:
 
@@ -17,13 +17,13 @@ The project will be then accessible by:
 
     cd ~/homepage-django
 
-## Logs
+## 2. Logs
 
 The logs will collected to a single location. This location is ``~/logs``. We must thus create the directory:
 
 	mkdir ~/logs
 
-## Install Python Virtual Environment
+## 3. Install Python Virtual Environment
 
 First install ``pip3``:
 
@@ -50,43 +50,58 @@ And apply changes by calling:
 Then create an environment called ``django``:
 
     mkvirtualenv django
+    source ~/venvs/django/bin/activate
 
-This is where you will be able to install required packages. 
+This is where you will be able to install packages required by the uWSGI ``.ini`` configuration file in the virtual environment location: 
 
     pip3 install django django-markdownx requests
 
+Lastly test the server by running
 
+    python3 ~/homepage-django/app/manage.py runserver
 
-## Install and Configure uWSGI
+At this point there shouldn't be much styling applied.
+
+## 4. Collect Project's Static Files and Test Server
+
+You also need to collect necessary static files for Nginx to serve the websites with wished styling:
+
+    workon django
+    python3 ~/homepage-django/app/manage.py collectstatic
+
+## 5. Install and Configure uWSGI
 
 Install required packages:
 
     sudo apt-get install python-dev
-    sudo pip install uwsgi
+    sudo pip3 install uwsgi
 
 Then we link our uWSGI configuration file to correct path:
 
-    sudo ln -s /home/pi/homepage-django/deployment/homepage-django-uwsgi.conf /etc/uwsgi/sites
+    mkdir ~/uwsgi
+    sudo ln -s /home/pi/homepage-django/deployment/homepage-django-uwsgi.ini /home/pi/uwsgi
 
-We also want to start the uWSGI service when our Pi starts. This is done by creating and initiation script:
+Test that the uWSGI works by calling the following and checking if there are any errors:
 
-    sudo nano /etc/init/uwsgi.conf
+    sudo uwsgi --http 0:8080 --ini /home/pi/uwsgi/homepage-django-uwsgi.ini
 
-Add the following to the file:
+You can also try to load the website in browser by navigating to ``http://[Pi's local IP]:8080``.
 
-    description "uWSGI application server in Emperor mode"
+Then we create a ``systemd`` uWSGI service by enabling our ``uwsgi.service``: 
 
-    start on runlevel [2345]
-    stop on runlevel [!2345]
+    sudo cp /home/pi/homepage-django/deployment/uwsgi.service /etc/systemd/system/
 
-    setuid pi
-    setgid www-data
+Then we refresh, start and enable uWSGI with:
 
-    exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+    sudo systemctl daemon-reload
+    sudo systemctl start uwsgi
+    sudo systemctl enable uwsgi
 
-Start the uWSGI service:
+And if willing, check the status of the uWSGI with:
 
-    sudo service uwsgi start
+    systemctl status uwsgi
+
+Details for this can be found [here](http://uwsgi-docs.readthedocs.io/en/latest/Systemd.html).
 
 ## Install and Configure Nginx
 
@@ -114,24 +129,24 @@ A case where Pi drops the ethernet connection and is unable to reconnect seems t
 
 The bash script we will be using is:
 
-	#!/bin/bash
+#!/bin/bash
 
-	LOGFILE=/home/pi/logs/network-monitor.log
+LOGFILE=/home/pi/logs/network-monitor.log
 
-	if ifconfig eth0 | grep -q "inet addr:" ;
-	then
-			echo "$(date "+%m %d %Y %T") : Ethernet OK" >> $LOGFILE
-	else
-			echo "$(date "+%m %d %Y %T") : Ethernet connection down! Attempting reconnection." >> $LOGFILE
-			ifup --force eth0
-			OUT=$? #save exit status of last command to decide what to do next
-			if [ $OUT -eq 0 ] ; then
-					STATE=$(ifconfig eth0 | grep "inet addr:")
-					echo "$(date "+%m %d %Y %T") : Network connection reset. Current state is" $STATE >> $LOGFILE
-			else
-					echo "$(date "+%m %d %Y %T") : Failed to reset ethernet connection" >> $LOGFILE
-			fi
-	fi
+if ifconfig eth0 | grep -q "inet addr:" ;
+then
+        echo "$(date "+%m %d %Y %T") : Ethernet OK" >> $LOGFILE
+else
+        echo "$(date "+%m %d %Y %T") : Ethernet connection down! Attempting reconnection." >> $LOGFILE
+        ifup --force eth0
+        OUT=$? #save exit status of last command to decide what to do next
+        if [ $OUT -eq 0 ] ; then
+                STATE=$(ifconfig eth0 | grep "inet addr:")
+                echo "$(date "+%m %d %Y %T") : Network connection reset. Current state is" $STATE >> $LOGFILE
+        else
+                echo "$(date "+%m %d %Y %T") : Failed to reset ethernet connection" >> $LOGFILE
+        fi
+fi
 	
 First thing is to make a directory for the script to live in:
 
@@ -140,7 +155,6 @@ First thing is to make a directory for the script to live in:
 Then we make a bash script in which the above script will be persisted:
 
 	nano ~/bin/network-monitor.sh
-	
 	
 We also want to make the created script executable. We thus add the created folder to the ``PATH`` variable in by adding 
 
@@ -153,8 +167,6 @@ to the last line of ``~/.bashrc``, apply changes with
 and make the script executable with
 
     chmod +x ~/bin/network-monitor.sh
-
-
 
 We then want to run the script automatically. This is achieved tiwh crontab. Open it with
 

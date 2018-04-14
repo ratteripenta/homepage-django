@@ -48,7 +48,7 @@ To access the website's admin panel, you must also create a Django super user. T
 
     python manage.py createsuperuser
 
-and following the instructions after.
+and following the instructions after. This is required for activating the LinkedIn API in the Admin panel
 
 ### Test the Website
 
@@ -67,3 +67,12 @@ Then call
     python manage.py runserver
 
 and navigate to the host address presented in the terminal.
+
+### Add LinkedIn API
+
+Then navigate to the ``/admin`` page and add a new LinkedIn API Client. Required information is found in the respective LinkedIn Developer app registered for the webpage. Two crucial endpoints to use in creating the client are:
+
+    http://host/linkedin-auth
+    http://host/linkedin-callback
+
+The latter has to be also registered as viable callback URL in the LinkedIn API app.

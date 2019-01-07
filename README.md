@@ -1,5 +1,7 @@
 # homepage-django
 
+> __This setup has been retired__
+
 This is the open-source repository for my Django-based homepage. Key elements of the website are:
 
  - Page content management through admin panel
